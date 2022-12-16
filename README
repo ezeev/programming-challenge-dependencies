@@ -1,0 +1,9 @@
+Consider a mono-repo containing apps and libs.
+
+Each contains a file named `meta.txt`, which contains, at minimum, a field
+called `name`. If the application or library has dependencies, it will have
+an additional field called `deps`.
+
+Write a program that can determine which dependencies (including sub-dependencies) are required for a specific application.
+
+Hint: start with the `breakfast` app, which has the fewest number of deps, then move on to `lunch`, then finally `secretsanta`.

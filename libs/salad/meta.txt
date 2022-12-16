@@ -1,0 +1,2 @@
+name: libsalad
+deps: libclaytonia, libgoatcheese

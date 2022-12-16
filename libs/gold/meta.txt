@@ -1,0 +1,2 @@
+name: libgold
+deps: libmetal

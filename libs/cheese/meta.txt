@@ -1,0 +1,2 @@
+name: libcheese
+incompatable: feat-lactose-intolerance
