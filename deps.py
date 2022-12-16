@@ -19,15 +19,12 @@ def parse_deps(name: str, depth: int):
             deps_str = line.split(":")[1]
             new_deps = [d.strip() for d in deps_str.split(",")]
             for dep in new_deps:
-                #print(type(deps))
                 if dep in all_deps:
+                    # add it as a duplicate to our list but do not recurse into it
+                    all_deps.append(dep + " (duplicate)")
+                    depths.append(depth+1)
                     continue
                 parse_deps(dep, depth+1)
-
-
-    #return ([d.strip() for d in deps])
-
-
 
 def main(app: str):
     print(f'Getting dependencies for {app}')
