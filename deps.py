@@ -1,17 +1,14 @@
 
 import sys
 
-
 all_deps = []
 depths = []
 def parse_deps(name: str, depth: int):
-
     all_deps.append(name)
     depths.append(depth)
     prefix = 'apps/' + name
     if name.startswith('lib'):
          prefix = 'libs/' + name[3:len(name)]
-    #print(f'opening {prefix}/meta.txt')
     f = open(f'{prefix}/meta.txt', "r")
     for line in f:
         l = line
@@ -20,11 +17,12 @@ def parse_deps(name: str, depth: int):
             new_deps = [d.strip() for d in deps_str.split(",")]
             for dep in new_deps:
                 if dep in all_deps:
-                    # add it as a duplicate to our list but do not recurse into it
+                    # add it as a duplicate to the list but do not recurse into it
                     all_deps.append(dep + " (duplicate)")
                     depths.append(depth+1)
                     continue
                 parse_deps(dep, depth+1)
+
 
 def main(app: str):
     print(f'Getting dependencies for {app}')
