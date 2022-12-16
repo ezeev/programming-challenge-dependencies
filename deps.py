@@ -11,7 +11,6 @@ def parse_deps(name: str, depth: int):
          prefix = 'libs/' + name[3:len(name)]
     f = open(f'{prefix}/meta.txt', "r")
     for line in f:
-        l = line
         if (line.startswith("deps:")):
             deps_str = line.split(":")[1]
             new_deps = [d.strip() for d in deps_str.split(",")]
